@@ -28,7 +28,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh api:*),Bash(gh label list:*),Read,Grep,Glob"'
+          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(gh api:*),Bash(gh label list:*),Read,Grep,Glob,Write"'
           prompt: |
             Eres un triage bot para el repositorio ${{ github.repository }}.
             El issue #${{ github.event.issue.number }} acaba de ser creado o editado.
@@ -98,13 +98,17 @@ jobs:
             El comentario DEBE empezar con la línea literal `<!-- claude-triage -->` como marcador
             oculto de idempotencia.
 
+            Escribe el comentario con la herramienta Write en el archivo
+            /tmp/claude-triage-body.md. El único archivo que puedes escribir es ese; no escribas
+            ni edites archivos del repositorio.
+
             Antes de publicar, busca si ya existe un comentario tuyo previo con ese marcador:
             gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments --jq '.[] | select(.body | contains("claude-triage")) | .id'
 
             - Si existe un id, ACTUALIZA ese comentario (no crees uno nuevo) con:
-              gh api -X PATCH repos/${{ github.repository }}/issues/comments/<id> -f body=@archivo.md
+              gh api -X PATCH repos/${{ github.repository }}/issues/comments/<id> -F body=@/tmp/claude-triage-body.md
             - Si no existe, crea uno nuevo con:
-              gh issue comment ${{ github.event.issue.number }} --body-file archivo.md
+              gh issue comment ${{ github.event.issue.number }} --body-file /tmp/claude-triage-body.md
 
             No modifiques el título ni el cuerpo del issue. No escribas ni edites código del
             proyecto, solo léelo para el diagnóstico.
