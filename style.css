@@ -251,3 +251,142 @@ kbd {
 #restart-btn:hover {
   background: var(--btn-hover-bg);
 }
+
+#start-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: var(--title-color);
+}
+
+.secondary-btn {
+  margin-top: 4px;
+  background: transparent;
+  color: var(--label-color);
+  border: 1px solid var(--kbd-border);
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.secondary-btn:hover {
+  color: var(--overlay-title-color);
+  border-color: var(--overlay-title-color);
+}
+
+.stats-summary {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2px 10px;
+  align-items: baseline;
+  justify-items: start;
+}
+
+.stats-summary .value {
+  font-size: 16px;
+}
+
+.highscore-table {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.highscore-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+}
+
+.highscore-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+.highscore-rank {
+  color: var(--label-color);
+  width: 18px;
+}
+
+.highscore-name {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.highscore-score {
+  color: var(--value-color);
+  font-weight: 700;
+}
+
+.highscore-entry.highscore-new {
+  background: color-mix(in srgb, var(--value-color) 20%, transparent);
+  outline: 1px solid var(--value-color);
+}
+
+.highscore-empty {
+  color: var(--label-color);
+  font-size: 12px;
+  text-align: center;
+}
+
+#save-score-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#save-score-form.hidden {
+  display: none;
+}
+
+#name-input {
+  background: var(--board-bg);
+  border: 1px solid var(--board-border);
+  border-radius: 4px;
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 13px;
+  width: 130px;
+}
+
+#save-score-btn {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#save-score-btn:hover {
+  background: var(--btn-hover-bg);
+}
+
+#gameover-extra.hidden {
+  display: none;
+}
+
+#gameover-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
