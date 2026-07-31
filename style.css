@@ -22,30 +22,74 @@
   --btn-bg: #7aa2f7;
   --btn-color: #0f0f17;
   --btn-hover-bg: #9bbdff;
-  --switch-bg: #2a2a3a;
-  --switch-knob: #7aa2f7;
+  --select-bg: #22223a;
+  --select-border: #3a3a5a;
 }
 
-body.light-theme {
-  --bg: #f0f0f5;
-  --text: #2a2a35;
-  --title-color: #3d5afe;
-  --board-border: #d0d0da;
+body[data-skin="neon"] {
+  --bg: #0a0014;
+  --text: #e0d0ff;
+  --title-color: #00f0ff;
+  --board-border: #ff00e6;
+  --board-bg: #10001f;
+  --label-color: #8866aa;
+  --value-color: #00f0ff;
+  --controls-color: #9977bb;
+  --kbd-bg: #1a0033;
+  --kbd-border: #ff00e6;
+  --kbd-color: #00f0ff;
+  --overlay-bg: rgba(10, 0, 20, 0.85);
+  --overlay-title-color: #ff2d55;
+  --overlay-score-color: #00f0ff;
+  --btn-bg: #ff00e6;
+  --btn-color: #0a0014;
+  --btn-hover-bg: #ff66f0;
+  --select-bg: #1a0033;
+  --select-border: #ff00e6;
+}
+
+body[data-skin="pastel"] {
+  --bg: #faf3f8;
+  --text: #4a3f4d;
+  --title-color: #c79ee0;
+  --board-border: #e8d8ec;
   --board-bg: #ffffff;
-  --label-color: #8888a0;
-  --value-color: #3d5afe;
-  --controls-color: #666680;
-  --kbd-bg: #e8e8f0;
-  --kbd-border: #c8c8d8;
-  --kbd-color: #555570;
-  --overlay-bg: rgba(240, 240, 245, 0.85);
-  --overlay-title-color: #d32f2f;
-  --overlay-score-color: #3d5afe;
-  --btn-bg: #3d5afe;
-  --btn-color: #ffffff;
-  --btn-hover-bg: #6b82ff;
-  --switch-bg: #d0d0da;
-  --switch-knob: #3d5afe;
+  --label-color: #b0a0b8;
+  --value-color: #a8c9d8;
+  --controls-color: #8a7a90;
+  --kbd-bg: #f4ecf4;
+  --kbd-border: #e0d0e4;
+  --kbd-color: #7a6a80;
+  --overlay-bg: rgba(250, 243, 248, 0.9);
+  --overlay-title-color: #f4b8b8;
+  --overlay-score-color: #a8c9d8;
+  --btn-bg: #d8bbf0;
+  --btn-color: #4a3f4d;
+  --btn-hover-bg: #e5cdf5;
+  --select-bg: #ffffff;
+  --select-border: #e0d0e4;
+}
+
+body[data-skin="pixel"] {
+  --bg: #1e1e1e;
+  --text: #c0c0c0;
+  --title-color: #d08020;
+  --board-border: #4a4a4a;
+  --board-bg: #101010;
+  --label-color: #707070;
+  --value-color: #40a040;
+  --controls-color: #808080;
+  --kbd-bg: #2a2a2a;
+  --kbd-border: #505050;
+  --kbd-color: #c0c0c0;
+  --overlay-bg: rgba(16, 16, 16, 0.88);
+  --overlay-title-color: #c04040;
+  --overlay-score-color: #40a040;
+  --btn-bg: #d08020;
+  --btn-color: #101010;
+  --btn-hover-bg: #e0a040;
+  --select-bg: #2a2a2a;
+  --select-border: #505050;
 }
 
 body {
@@ -81,43 +125,17 @@ body {
   margin-bottom: 16px;
 }
 
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 22px;
+.skin-select {
   flex-shrink: 0;
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.theme-switch .slider {
-  position: absolute;
+  background: var(--select-bg);
+  color: var(--text);
+  border: 1px solid var(--select-border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: inherit;
   cursor: pointer;
-  inset: 0;
-  background: var(--switch-bg);
-  border-radius: 22px;
-  transition: background 0.2s;
-}
-
-.theme-switch .slider::before {
-  content: '';
-  position: absolute;
-  height: 16px;
-  width: 16px;
-  left: 3px;
-  bottom: 3px;
-  background: var(--switch-knob);
-  border-radius: 50%;
-  transition: transform 0.2s;
-}
-
-.theme-switch input:checked + .slider::before {
-  transform: translateX(18px);
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .game-container {
