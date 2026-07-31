@@ -251,3 +251,61 @@ kbd {
 #restart-btn:hover {
   background: var(--btn-hover-bg);
 }
+
+/* ---- Pause menu ---- */
+#pause-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--overlay-title-color);
+}
+
+.pause-box {
+  min-width: 200px;
+}
+
+.pause-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.pause-field select {
+  background: var(--kbd-bg);
+  border: 1px solid var(--kbd-border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+#pause-menu .overlay-box button {
+  margin-top: 0;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s;
+  width: 100%;
+}
+
+#pause-menu .overlay-box button:hover {
+  background: var(--btn-hover-bg);
+}
+
+#pause-controls-list {
+  align-items: center;
+  margin-top: 4px;
+}
+
+#pause-controls-list.hidden {
+  display: none;
+}
